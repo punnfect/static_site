@@ -1,4 +1,5 @@
 from logging import raiseExceptions
+from re import split
 from htmlnode import LeafNode, ParentNode, HTMLNode
 
 text_type_text = "text"
@@ -31,8 +32,7 @@ class TextNode:
             case _:
                 raise Exception(f"{text_node.text_type} is not a valid text type")
             
-        # def __init__(self, tag, value, props=None):
-        # super().__init__(tag, value, None, props)
+
 
     def __eq__(self, other):
         if (self.text == other.text and
@@ -43,5 +43,6 @@ class TextNode:
             return False
     
     def __repr__(self):
-        return f"TextNode\nself.text = \'{self.text}\',\nself.text_type = \'{self.text_type}\',\nself.url = \'{self.url}\'"
-    
+        return f"\nTextNode\nself.text = \'{self.text}\',\nself.text_type = \'{self.text_type}\',\nself.url = \'{self.url}\'"
+        # return f"TextNode({self.text}, {self.text_type}, {self.url})"
+
