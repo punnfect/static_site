@@ -10,6 +10,14 @@ block_type_olist = "ordered_list"
 block_type_ulist = "unordered_list"
 
 
+def extract_title(markdown):
+    title_checker = markdown_to_blocks(markdown)
+    for title in title_checker:
+        if block_to_block_type(title) == block_type_heading and title.startswith('# '):
+            return title.strip("# ")
+    raise ValueError("No title found")
+
+
 def markdown_to_blocks(markdown):
     blocks = markdown.split("\n\n")
     filtered_blocks = []
@@ -160,9 +168,17 @@ def quote_to_html_node(block):
 #text_to_textnodes(text)
 
 
-def main():
-    item = "1. hello"
+# def main():
+#     sttt = """```fdsfad```
 
-    print(block_to_block_type(item))
+#     # The Unparalleled Majesty of "The Lord of the Rings"
 
-main()
+#     [Back Home](/)
+
+#     ![LOTR image artistmonkeys](/images/rivendell.png)
+
+#     > "I cordially dislike allegory in all its manifestations, and always"""
+
+#     print(extract_title(sttt))
+
+# main()
