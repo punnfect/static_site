@@ -8,7 +8,7 @@ class HTMLNode:
     def to_html(self):
         raise NotImplementedError('Not implemented')
     
-    #space before string is intentional idk why
+
     def props_to_html(self):
         if self.props is None:
             return ""
@@ -17,20 +17,11 @@ class HTMLNode:
             edited_str += f' {key}="{value}"'
         return edited_str
     
-    # don't need
-    # def __eq__(self, other):
-    #     if (self.tag == other.tag and
-    #     self.value == other.value and
-    #     self.children == other.children and
-    #     self.props == other.props):
-    #         return True
-    #     else:
-    #         return False
     
     def __repr__(self):
         return f"HTMLNode\nself.tag = {self.tag},\nself.value = {self.value},\nself.children = {self.children},\nself.props = {self.props}"
     
-
+# children node inside a parent node, representing nesting HTML tags
 class LeafNode(HTMLNode):
     def __init__(self, tag, value, props=None):
         super().__init__(tag, value, None, props)
@@ -45,7 +36,7 @@ class LeafNode(HTMLNode):
     def __repr__(self):
         return f"\nLeafNode\nself.tag = {self.tag},\nself.value = {self.value},\nself.props = {self.props}"
 
-
+# highest level <tag>
 class ParentNode(HTMLNode):
     def __init__(self, tag, children, props=None):
         super().__init__(tag, None, children, props)
@@ -62,19 +53,3 @@ class ParentNode(HTMLNode):
     
     def __repr__(self):
         return f"ParentNode\nself.tag = {self.tag},\nself.children =\n{self.children}\nself.props = {self.props}"
-
-# def main():
-#     node = ParentNode(
-#     "p",
-#     [
-#         LeafNode("b", "Bold text"),
-#         LeafNode(None, "Normal text"),
-#         LeafNode("i", "italic text"),
-#         LeafNode(None, "Normal text"),
-#     ],
-#     {'href': 'https://www.google.com', 'target': '_blank'}
-# )
-#     # print(node.to_html())
-#     # print(node.__repr__())
-
-# # main()

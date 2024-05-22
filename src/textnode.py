@@ -1,5 +1,3 @@
-from logging import raiseExceptions
-from re import split
 from htmlnode import LeafNode, ParentNode, HTMLNode
 
 text_type_text = "text"
@@ -8,6 +6,8 @@ text_type_italic = "italic"
 text_type_code = "code"
 text_type_link = "link"
 text_type_image = "image"
+
+# intermediate form between markdown and an HTML node
 
 class TextNode:
     def __init__(self, text, text_type, url=None):
@@ -26,7 +26,6 @@ class TextNode:
     
     def __repr__(self):
         return f"\nTextNode\nself.text = \'{self.text}\',\nself.text_type = \'{self.text_type}\',\nself.url = \'{self.url}\'"
-        # return f"TextNode({self.text}, {self.text_type}, {self.url})"
 
 def text_node_to_html_node(text_node):
         match text_node.text_type:

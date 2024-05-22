@@ -1,5 +1,4 @@
 import os
-from textnode import TextNode
 import shutil
 from copystatic import copy_files_recursive
 from gencontent import generate_pages_recursive

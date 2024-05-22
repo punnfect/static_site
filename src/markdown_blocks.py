@@ -9,6 +9,7 @@ block_type_quote = "quote"
 block_type_olist = "ordered_list"
 block_type_ulist = "unordered_list"
 
+# take entire markdown file and returns a parentnode and leafnodes recursively for each nested HTML tag
 
 def extract_title(markdown):
     title_checker = markdown_to_blocks(markdown)
@@ -164,21 +165,3 @@ def quote_to_html_node(block):
     children = text_to_children(content)
     return ParentNode("blockquote", children)
 
-#TextNode.text_node_to_html_node(text_node)
-#text_to_textnodes(text)
-
-
-# def main():
-#     sttt = """```fdsfad```
-
-#     # The Unparalleled Majesty of "The Lord of the Rings"
-
-#     [Back Home](/)
-
-#     ![LOTR image artistmonkeys](/images/rivendell.png)
-
-#     > "I cordially dislike allegory in all its manifestations, and always"""
-
-#     print(extract_title(sttt))
-
-# main()

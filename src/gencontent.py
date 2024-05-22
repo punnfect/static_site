@@ -1,5 +1,4 @@
 import os
-import shutil
 from markdown_blocks import extract_title, markdown_to_html_node
 
 def generate_page(from_path, template_path, dest_path):

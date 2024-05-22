@@ -9,6 +9,8 @@ from textnode import (
     text_type_image,
 )
 
+# changes text extracted from markdown into a textnode
+
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
     new_nodes = []
     for old_node in old_nodes:
@@ -100,8 +102,3 @@ def text_to_textnodes(text):
     nodes = split_nodes_link(nodes)
     return nodes
 
-# def main():        
-#     node = text_to_textnodes("This is **text** with an *italic* word and a `code block` and an ![image](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/zjjcJKZ.png) and a [link](https://boot.dev")
-#     print(node)
-
-# main()
